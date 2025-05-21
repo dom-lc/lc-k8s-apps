@@ -1,0 +1,13 @@
+# This file contains the values for the ArgoCD Helm chart
+# It is used to deploy ArgoCD in the green-prod environment
+repoSecret:
+  enabled: false
+
+# Define ArgoCD Chart specific values
+# This section contains the configuration for ArgoCD
+argo-cd:
+  global:
+    # -- Default domain used by all components
+    ## Used for ingresses, certificates, SSO, notifications, etc.
+    domain: argocd.green-prod.com
+ 

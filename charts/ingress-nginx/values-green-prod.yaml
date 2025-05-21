@@ -1,0 +1,8 @@
+# Values file for the Ingress NGINX Controller
+
+# Overide NGINX ingress controller's values
+# Please refer to the ingress-nginx Chart values for more details
+ingress-nginx:
+  controller:
+    service:
+      type: NodePort

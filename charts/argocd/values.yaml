@@ -1,0 +1,21 @@
+# This file contains the values for the ArgoCD Helm chart
+
+# Here you can provide credentials for private git repositories
+repoSecret:
+  enabled: false
+# Define the repository url, the username and secret for GitHub authentication
+# repoSecret:
+#   # -- Name of the secret used to store the GitHub repository credentials
+#   name: repo-github
+#   # -- URL of the GitHub repository 
+#   url: https://github.com/repository.git
+#   # -- Username for GitHub authentication 
+#   username: username
+#   # -- Password for GitHub authentication 
+#   # -- This should be a GitHub PAT with repo scope
+#   password: <path:secret/git#git_token>
+
+# Define ArgoCD Chart specific values
+# This section contains the configuration for ArgoCD
+# Please refer to the ArgoCD Helm chart values for more details
+# argo-cd:

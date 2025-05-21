@@ -1,0 +1,15 @@
+# List of config maps to be created
+configMaps: {}
+  # configmap1-name: 
+  #   data:
+  #     key1: value1
+  #     key2: value2
+# List of secrets to be created
+secrets: {}
+# secret1-namet:
+#   data:
+#     key1: value1  # base64 
+
+# Overide reflector's values
+# Please refer to the reflector Chart values for more details
+# reflector:
