@@ -9,9 +9,9 @@ secret:
 # Values for the runner deployment
 runnerDeployment:
   - name: surveillance-hosted-k8s-apps
-    repository: dom-lc/lc-k8s-apps
+    repository: dom-lc/lc-k8s-infra
   - name: surveillance-hosted-k8sapps-deploy
-    repository: dom-lc/lc-k8s-apps-deployments
+    repository: dom-lc/lc-k8s-apps
 # Overide actions-controller values
 actions-runner-controller:
   authSecret:

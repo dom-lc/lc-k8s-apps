@@ -1,0 +1,17 @@
+name: Test Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main  # change to your target branch
+  workflow_dispatch: {} # optional manual trigger
+
+jobs:
+  build:
+    runs-on: [self-hosted]  # this matches your RunnerDeployment
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Say hello from self-hosted runner
+        run: echo "Hello from self-hosted runner!"
