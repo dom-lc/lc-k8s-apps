@@ -16,6 +16,14 @@ Consider you could have put your values in a separate repository as LC uses lc-k
 
 In order to create a new application:
 * copy the ```./new-app``` directory and paste int under ```./charts```.
-* Rename 
+* Rename the directory you just copied under ```./charts``` to match your new application name
+* Fill in the application.yaml with your apps's name and branch name
+* Fill in the name and description in the ```Chart.yaml``` file
+* If your chart is importing an exixsting application chart, import it in your ```Chart.yaml```'s dependency section
+* add a ```template``` folder and define your custom charts yaml templates if required
+* Set all the values in the surveillance-green.yaml
+
+</br></br>
+If your application requires terraform managed infrastructure (ex: nodepool, database, storage account,...), Please refer to the [lc ingrastructure repository](https://github.com/dom-lc/lc-k8s-infra.git) in order to crate and manage your terraform config.
 
 ## Update/Upgrade an application
