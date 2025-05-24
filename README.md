@@ -11,3 +11,11 @@ They are deployed by an applicatonset using a helm git generator that we define 
 
 All of our "core" cluster apps resides each in their own directory under ```charts```. Inside each app's directory we can find the Chart and values files for each cluster.</br></br>
 Consider you could have put your values in a separate repository as LC uses lc-k8s-apps-values. I wanted here to showcase the use of the applicationset for all our core apps but the structure is "modulable".
+
+## Create a New application
+
+In order to create a new application:
+* copy the ```./new-app``` directory and paste int under ```./charts```.
+* Rename 
+
+## Update/Upgrade an application
