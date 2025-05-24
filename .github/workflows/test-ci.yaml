@@ -1,9 +1,6 @@
-name: Test Self-Hosted Runner
+name: Deploy new app
 
 on:
-  push:
-    branches:
-      - main  # change to your target branch
   workflow_dispatch: {} # optional manual trigger
 
 jobs:
@@ -13,5 +10,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Say hello from self-hosted runner
-        run: echo "Hello from self-hosted runner!"
+      - name: Clone lc-k8s-infra repo
+        run: |
+          git clone https://github.com/dom-lc/lc-k8s-infra.git ../lc-k8s-infra
+
+      - name: Run helm template
+        run: |
+          helm template ../lc-k8s-infra/charts/app-management \
+            -f charts/app-management/values-surveillance-green.yaml | kubectl apply -f -
+        
+
+# name: Test Self-Hosted Runner
+
+# on:
+#   push:
+#     branches:
+#       - main  # change to your target branch
+#   workflow_dispatch: {} # optional manual trigger
+
+# jobs:
+#   build:
+#     runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Say hello from self-hosted runner
+#         run: echo "Hello from self-hosted runner!"
