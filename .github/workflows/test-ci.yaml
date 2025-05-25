@@ -5,7 +5,8 @@ on:
 
 jobs:
   build:
-    runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
+    # runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
