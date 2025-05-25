@@ -24,6 +24,13 @@ In order to create a new application:
 * Set all the values in the surveillance-green.yaml
 
 </br></br>
+If you are unsure whatis the version to use for your dependency, youcan refer to the online official tool's repository or add it to your local repositories an list the versions with:
+
+```
+helm search repo repository-name/application-name --versions
+```
+
+</br></br>
 If your application requires terraform managed infrastructure (ex: nodepool, database, storage account,...), Please refer to the [lc ingrastructure repository](https://github.com/dom-lc/lc-k8s-infra.git) in order to crate and manage your terraform config.
 
 ## Update/Upgrade an application
