@@ -17,6 +17,11 @@ jobs:
           repository: dom-lc/lc-k8s-infra
           path: lc-k8s-infra
 
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'  # or specify a version like 'v1.26.0'
+
       - name: Install Helm
         uses: azure/setup-helm@v3
         with:
