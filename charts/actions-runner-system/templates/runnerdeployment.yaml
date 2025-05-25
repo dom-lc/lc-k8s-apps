@@ -8,6 +8,8 @@ spec:
   replicas: 1
   template:
     spec:
+      # Enable Docker daemon sidecar (Docker-in-Docker)
+      dockerdEnabled: true
       repository: {{ .repository }}
 ---
 {{- end }}
