@@ -8,6 +8,8 @@ spec:
   replicas: 1
   template:
     spec:
+      labels:
+        - {{ .name}}
       repository: {{ .repository }}
 ---
 {{- end }}
