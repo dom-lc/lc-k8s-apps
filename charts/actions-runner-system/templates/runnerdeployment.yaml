@@ -10,6 +10,16 @@ spec:
     spec:
       # Enable Docker daemon sidecar (Docker-in-Docker)
       dockerdWithinRunnerContainer: true
+      containers:
+        - name: runner
+          volumeMounts:
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+      volumes:
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+            type: Socket
       repository: {{ .repository }}
 ---
 {{- end }}
