@@ -7,7 +7,7 @@ namespace: actions-runner-system
 #   data:
 #     github_token: <path:secret/git#git_token> 
 # Values for the runner deployment
-runnerDeployment:
+runnerDeployments:
   - name: surveillance-hosted-k8s-apps
     repository: dom-lc/lc-k8s-infra
   - name: surveillance-hosted-k8sapps-deploy
