@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       # Enable Docker daemon sidecar (Docker-in-Docker)
-      dockerdEnabled: true
+      dockerdWithinRunnerContainer: true
       repository: {{ .repository }}
 ---
 {{- end }}
