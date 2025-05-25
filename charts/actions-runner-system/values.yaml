@@ -1,16 +1,16 @@
-namespace: actions-runner-system
-# Token for GitHub authentication
-# This token should be a GitHub PAT 
-# secret:
-#   name: github-auth-secret
-#   type: Opaque
-#   stringData:
-#     github_token: <path:secret/git#git_token>    
-# List for the runner deployments
-# Contains the configuration for the runner deployment
-runnerDeployments:
-  - name: self-hosted-runner
-    repository: username/repository
+# namespace: actions-runner-system
+# # Token for GitHub authentication
+# # This token should be a GitHub PAT 
+# # secret:
+# #   name: github-auth-secret
+# #   type: Opaque
+# #   stringData:
+# #     github_token: <path:secret/git#git_token>    
+# # List for the runner deployments
+# # Contains the configuration for the runner deployment
+# runnerDeployments:
+#   - name: self-hosted-runner
+#     repository: username/repository
 
 # Overide actions-controller values
 # Please refer to the actions-runner-controller Chart values for more details
