@@ -18,7 +18,7 @@ jobs:
       - name: Run helm template
         run: |
           helm template ../lc-k8s-infra/charts/app-management \
-            -f charts/app-management/values-surveillance-green.yaml | kubectl apply -f -
+            -f charts/reloader/values-surveillance-green.yaml | kubectl apply -f -
         
 
 # name: Test Self-Hosted Runner
