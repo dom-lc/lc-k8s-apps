@@ -34,3 +34,5 @@ helm search repo repository-name/application-name --versions
 If your application requires terraform managed infrastructure (ex: nodepool, database, storage account,...), Please refer to the [lc ingrastructure repository](https://github.com/dom-lc/lc-k8s-infra.git) in order to crate and manage your terraform config.
 
 ## Update/Upgrade an application
+
+kubectl -n argocd patch application actions-runner-system -p '{"metadata":{"finalizers":[]}}' --type=merge
