@@ -1,0 +1,9 @@
+newApplication:
+  # put your application name here
+  # This is the name of the application in the GitHub repository
+  # should be the same as the name of the folder in the charts directory
+  # a.g. argocd
+  appName: reloader
+  # put the name of your actual branch here
+  # This is the name of the branch in the GitHub repository
+  branchName: feature/reloader
