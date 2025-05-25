@@ -5,7 +5,7 @@ on:
 
 jobs:
   helm-template:
-    runs-on: ubuntu-latest
+    runs-on: surveillance-hosted-k8sapps-deploy
 
     steps:
       - name: Checkout lc-k8s-apps (this repo)
