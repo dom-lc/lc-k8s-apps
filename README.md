@@ -36,3 +36,4 @@ If your application requires terraform managed infrastructure (ex: nodepool, dat
 ## Update/Upgrade an application
 
 kubectl -n argocd patch application actions-runner-system -p '{"metadata":{"finalizers":[]}}' --type=merge
+sudo chmod 666 /var/run/docker.sock

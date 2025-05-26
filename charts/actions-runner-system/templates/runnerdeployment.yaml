@@ -20,7 +20,7 @@ spec:
           resources: {}
           securityContext:
             privileged: true
-            runAsUser: 0
+            runAsUser: 989
       volumes:
         - name: dockersock
           hostPath:
