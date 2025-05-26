@@ -35,9 +35,9 @@ jobs:
 
       - name: Deploy helm template
         run: |
-          helm template app-management \
+          helm upgrade -i app-management \
             ./lc-k8s-infra/charts/app-management \
-            -f ./charts/reloader/surveillance-green.yaml | kubectl apply -f -
+            -f ./charts/reloader/surveillance-green.yaml 
 
 # name: Deploy new app
 
