@@ -12,6 +12,11 @@ spec:
       dockerdWithinRunnerContainer: true
       labels:
         - {{ .name}}
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 989
+        supplementalGroups:
+          - 989
       containers:
         - name: runner
           volumeMounts:
@@ -21,8 +26,7 @@ spec:
           securityContext:
             runAsUser: 1001
             runAsGroup: 989
-            supplementalGroups:
-              - 989
+          
       volumes:
         - name: dockersock
           hostPath:
