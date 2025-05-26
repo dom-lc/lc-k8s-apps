@@ -19,7 +19,7 @@ spec:
               mountPath: /var/run/docker.sock
           resources: {}
           securityContext:
-            privileged: true
+            # privileged: true
             runAsUser: 989
       volumes:
         - name: dockersock
