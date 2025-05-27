@@ -1,0 +1,49 @@
+name: Render Helm Template
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - surveillance-green
+  workflow_dispatch: {} # optional manual trigger
+
+jobs:
+  delete-application:
+    runs-on: surveillance-hosted-k8sapps-deploy
+
+    steps:
+      # - name: Checkout lc-k8s-apps (this repo)
+      #   uses: actions/checkout@v4
+
+      # - name: Checkout lc-k8s-infra (contains chart)
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: dom-lc/lc-k8s-infra
+      #     path: lc-k8s-infra
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'  # or specify a version like 'v1.26.0'
+
+      # - name: Install Helm
+      #   uses: azure/setup-helm@v3
+      #   with:
+      #     version: v3.14.0  # or latest version
+     
+
+      # - name: Run helm template
+      #   run: |
+      #     helm template app-management \
+      #       ./lc-k8s-infra/charts/app-management \
+      #       -f ./charts/reloader/application.yaml 
+
+      - name: Destroy ArgoCD Application
+        run: |
+          kubectl delete -n argocd application  
+
+      - name: Delete all application.yaml files in /charts/**
+        run: |
+          find charts -type f -name 'application.yaml' -exec rm -v {} +
+
+      

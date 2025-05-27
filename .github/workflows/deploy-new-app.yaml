@@ -1,6 +1,10 @@
 name: Render Helm Template
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - surveillance-green
   workflow_dispatch: {} # optional manual trigger
 
 jobs:
