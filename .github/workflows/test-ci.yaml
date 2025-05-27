@@ -22,13 +22,6 @@ jobs:
         with:
           version: 'latest'  # or specify a version like 'v1.26.0'
 
-      # - name: Sudo it
-      #   run: |
-      #     echo "runner:x:1001:1001::/home/runner:/bin/bash" >> /etc/passwd
-    
-
-      
-
       - name: Install Helm
         uses: azure/setup-helm@v3
         with:
@@ -46,11 +39,11 @@ jobs:
         run: |
           kubectl get node
 
-      - name: Deploy ArgoCD Application
-        run: |
-          helm template app-management \
-            ./lc-k8s-infra/charts/app-management \
-            -f ./charts/reloader/application.yaml | kubectl apply -n argocd -f - 
+      # - name: Deploy ArgoCD Application
+      #   run: |
+      #     helm template app-management \
+      #       ./lc-k8s-infra/charts/app-management \
+      #       -f ./charts/reloader/application.yaml | kubectl apply -n argocd -f - 
 
 # name: Deploy new app
 
