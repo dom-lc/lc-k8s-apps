@@ -1,17 +1,70 @@
-name: Test Self-Hosted Runner
+name: Render Helm Template
 
 on:
-  push:
-    branches:
-      - main  # change to your target branch
   workflow_dispatch: {} # optional manual trigger
 
 jobs:
-  build:
-    runs-on: [self-hosted]  # this matches your RunnerDeployment
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+  helm-template:
+    runs-on: ubuntu-latest
 
-      - name: Say hello from self-hosted runner
-        run: echo "Hello from self-hosted runner!"
+    steps:
+      - name: Checkout lc-k8s-apps (this repo)
+        uses: actions/checkout@v4
+
+      - name: Checkout lc-k8s-infra (contains chart)
+        uses: actions/checkout@v4
+        with:
+          repository: dom-lc/lc-k8s-infra
+          path: lc-k8s-infra
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.14.0  # or latest version
+
+      - name: Run helm template
+        run: |
+          helm template app-management \
+            ./lc-k8s-infra/charts/app-management \
+            -f ./charts/reloader/surveillance-green.yaml
+
+# name: Deploy new app
+
+# on:
+#   workflow_dispatch: {} # optional manual trigger
+
+# jobs:
+#   build:
+#     # runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Clone lc-k8s-infra repo
+#         run: |
+#           git clone https://github.com/dom-lc/lc-k8s-infra.git ../lc-k8s-infra
+
+#       - name: Run helm template
+#         run: |
+#           helm template ../lc-k8s-infra/charts/app-management \
+#             -f charts/reloader/values-surveillance-green.yaml | kubectl apply -f -
+        
+
+# name: Test Self-Hosted Runner
+
+# on:
+#   push:
+#     branches:
+#       - main  # change to your target branch
+#   workflow_dispatch: {} # optional manual trigger
+
+# jobs:
+#   build:
+#     runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Say hello from self-hosted runner
+#         run: echo "Hello from self-hosted runner!"
