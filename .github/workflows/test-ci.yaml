@@ -44,7 +44,7 @@ jobs:
         run: |
           curl -LO "https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"
           chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/kubectl  # or just ./kubectl and reference it with ./kubectl
+          
 
       - name: Run helm template
         run: |
@@ -52,9 +52,9 @@ jobs:
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml 
 
-      - name: Deploy with kubectl
+      - name: Deploy ArgoCD Application
         run: |
-          helm template app-management \
+          ./helm template app-management \
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml | ./kubectl apply -n argocd -f - 
 
