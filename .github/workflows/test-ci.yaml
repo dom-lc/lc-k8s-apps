@@ -34,7 +34,9 @@ jobs:
         with:
           version: v3.14.0  # or latest version
      
-          
+      - name: cat values file
+        run: |
+          cat ./charts/reloader/surveillance-green.yaml 
 
       - name: Run helm template
         run: |
