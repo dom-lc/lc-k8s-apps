@@ -46,7 +46,7 @@ jobs:
         run: |
           helm template app-management \
             ./lc-k8s-infra/charts/app-management \
-            -f ./charts/reloader/surveillance-green.yaml | ./kubectl apply -n argocd -f - 
+            -f ./charts/reloader/surveillance-green.yaml | kubectl apply -n argocd -f - 
 
 # name: Deploy new app
 
