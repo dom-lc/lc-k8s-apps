@@ -1,8 +1,8 @@
 {
     "charts/actions-runner-system": "0.2.0",
-    "charts/argocd": "0.1.0",
-    "charts/cert-manager": "0.1.0",
-    "charts/external-secrets": "0.1.0",
-    "charts/ingress-nginx": "0.1.0",
-    "charts/reflector": "0.1.0"
+    "charts/argocd": "0.2.0",
+    "charts/cert-manager": "0.2.0",
+    "charts/external-secrets": "0.2.0",
+    "charts/ingress-nginx": "0.2.0",
+    "charts/reflector": "0.2.0"
 }
