@@ -44,6 +44,6 @@ jobs:
 
       - name: Delete all application.yaml files in /charts/**
         run: |
-          find ./charts -type f -name 'application.yaml' -exec awk '/appName:/ {print $2}' {} +
+          find ./charts -type f -name 'application.yaml' -exec awk '/appName:/ {print $2}' {} + | kubectl delete application -nargocd -
 
       
