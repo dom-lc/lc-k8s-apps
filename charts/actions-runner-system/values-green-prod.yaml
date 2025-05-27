@@ -1,13 +1,13 @@
 namespace: actions-runner-system
 # Token for GitHub authentication
 # This token should be a GitHub PAT 
-secret:
-  name: github-auth-secret
-  type: Opaque
-  data:
-    github_token: <path:secret/git#git_token>  # base64 for token
+# secret:
+#   name: github-auth-secret
+#   type: Opaque
+#   data:
+#     github_token: <path:secret/git#git_token>  # base64 for token
 # Values for the runner deployment
-runnerDeployment:
+runnerDeployments:
   - name: prod-hosted-k8s-infra
     repository: dom-lc/lc-k8s-infra
   - name: prod-hosted-k8s-apps

@@ -1,0 +1,6 @@
+namespace: external-secrets
+secret:
+  name: vault-token
+  type: Opaque
+  stringData:
+    token: root

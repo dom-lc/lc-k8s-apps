@@ -8,6 +8,30 @@ spec:
   replicas: 1
   template:
     spec:
+      # Enable Docker daemon sidecar (Docker-in-Docker)
+      dockerdWithinRunnerContainer: true
+      labels:
+        - {{ .name}}
+      # securityContext:
+      #   runAsUser: 1001
+      #   runAsGroup: 989
+      #   supplementalGroups:
+      #     - 989
+      containers:
+        - name: runner
+          volumeMounts:
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+          resources: {}
+          # securityContext:
+          #   runAsUser: 1001
+          #   runAsGroup: 989
+          
+      volumes:
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+            type: Socket
       repository: {{ .repository }}
 ---
 {{- end }}
