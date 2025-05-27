@@ -29,10 +29,16 @@ jobs:
 
       
 
-      - name: Install Helm
-        uses: azure/setup-helm@v3
-        with:
-          version: v3.14.0  # or latest version
+      # - name: Install Helm
+      #   uses: azure/setup-helm@v3
+      #   with:
+      #     version: v3.14.0  # or latest version
+      - name: Install helm locally
+        run: |
+          curl -LO https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
+          tar -xzvf helm-v3.14.0-linux-amd64.tar.gz
+          mv linux-amd64/helm ./helm
+          chmod +x ./helm
 
       - name: Install kubectl locally
         run: |
