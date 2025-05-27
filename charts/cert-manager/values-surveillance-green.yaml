@@ -5,7 +5,7 @@
 # This section contains the configuration for the issuer
 issuer:
   enabled: false
-
+  selfSigned: {}
 # Overide cert-manager's values
 # Please refer to the cert-manager Chart values for more details
 cert-manager:
