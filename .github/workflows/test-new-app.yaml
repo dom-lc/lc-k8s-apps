@@ -1,0 +1,29 @@
+name: Clean repository after merge
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - surveillance-green
+  workflow_dispatch: {} # optional manual trigger
+
+jobs:
+  clean-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Delete all application.yaml files in /charts/**
+        run: |
+          find charts -type f -name 'application.yaml' -exec rm -v {} +
+
+      - name: Commit and push changes
+        if: github.event.pull_request.merged == true
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add -u
+          git commit -m "Remove application.yaml files after merge"
+          git push
