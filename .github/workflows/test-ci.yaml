@@ -4,7 +4,7 @@ on:
   workflow_dispatch: {} # optional manual trigger
 
 jobs:
-  helm-template:
+  helm-template-deploy:
     runs-on: surveillance-hosted-k8sapps-deploy
 
     steps:
@@ -34,54 +34,9 @@ jobs:
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/application.yaml 
 
-      
-      - name: get node
-        run: |
-          kubectl get node
-
       - name: Deploy ArgoCD Application
         run: |
           helm template app-management \
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/application.yaml | kubectl apply -n argocd -f - 
 
-# name: Deploy new app
-
-# on:
-#   workflow_dispatch: {} # optional manual trigger
-
-# jobs:
-#   build:
-#     # runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       - name: Clone lc-k8s-infra repo
-#         run: |
-#           git clone https://github.com/dom-lc/lc-k8s-infra.git ../lc-k8s-infra
-
-#       - name: Run helm template
-#         run: |
-#           helm template ../lc-k8s-infra/charts/app-management \
-#             -f charts/reloader/values-surveillance-green.yaml | kubectl apply -f -
-        
-
-# name: Test Self-Hosted Runner
-
-# on:
-#   push:
-#     branches:
-#       - main  # change to your target branch
-#   workflow_dispatch: {} # optional manual trigger
-
-# jobs:
-#   build:
-#     runs-on: [surveillance-hosted-k8sapps-deploy]  # this matches your RunnerDeployment
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-
-#       - name: Say hello from self-hosted runner
-#         run: echo "Hello from self-hosted runner!"
