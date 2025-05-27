@@ -1,0 +1,34 @@
+{
+  "include-v-in-tag": true,
+  "separate-pull-requests": true,
+  "sequential-calls": true,
+  "skip-github-release": true,
+  "release-type": "helm",
+  "packages": {
+    "charts/actions-runner-system": {
+      "package-name": "actions-runner-system",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "charts/argocd": {
+      "package-name": "argocd",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "charts/cert-manager": {
+      "package-name": "cert-manager",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "charts/external-secrets": {
+      "package-name": "external-secrets",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "charts/ingress-nginx": {
+      "package-name": "ingress-nginx",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "charts/reflector": {
+      "package-name": "reflector",
+      "changelog-path": "CHANGELOG.md"
+    }
+  },
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+}
