@@ -7,26 +7,32 @@
   "packages": {
     "charts/actions-runner-system": {
       "package-name": "actions-runner-system",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     },
     "charts/argocd": {
       "package-name": "argocd",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     },
     "charts/cert-manager": {
       "package-name": "cert-manager",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     },
     "charts/external-secrets": {
       "package-name": "external-secrets",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     },
     "charts/ingress-nginx": {
       "package-name": "ingress-nginx",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     },
     "charts/reflector": {
       "package-name": "reflector",
+      "release-type": "helm",
       "changelog-path": "CHANGELOG.md"
     }
   },
