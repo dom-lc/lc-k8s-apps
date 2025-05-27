@@ -1,4 +1,4 @@
-name: Render Helm Template
+name: Destroy ArgoCD Application
 
 on:
   pull_request:
@@ -38,12 +38,12 @@ jobs:
       #       ./lc-k8s-infra/charts/app-management \
       #       -f ./charts/reloader/application.yaml 
 
-      - name: Destroy ArgoCD Application
-        run: |
-          kubectl delete -n argocd application  
+      # - name: Destroy ArgoCD Application
+      #   run: |
+      #     kubectl delete -n argocd application  
 
       - name: Delete all application.yaml files in /charts/**
         run: |
-          find charts -type f -name 'application.yaml' -exec rm -v {} +
+          find ./charts -type f -name 'application.yaml' -exec awk '/appName:/ {print $2}' {} +
 
       
