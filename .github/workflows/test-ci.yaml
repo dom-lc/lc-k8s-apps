@@ -17,10 +17,10 @@ jobs:
           repository: dom-lc/lc-k8s-infra
           path: lc-k8s-infra
 
-      # - name: Setup kubectl
-      #   uses: azure/setup-kubectl@v3
-      #   with:
-      #     version: 'latest'  # or specify a version like 'v1.26.0'
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'  # or specify a version like 'v1.26.0'
 
       # - name: Sudo it
       #   run: |
@@ -29,32 +29,22 @@ jobs:
 
       
 
-      # - name: Install Helm
-      #   uses: azure/setup-helm@v3
-      #   with:
-      #     version: v3.14.0  # or latest version
-      - name: Install helm locally
-        run: |
-          curl -LO https://get.helm.sh/helm-v3.14.0-linux-amd64.tar.gz
-          tar -xzvf helm-v3.14.0-linux-amd64.tar.gz
-          mv linux-amd64/helm ./helm
-          chmod +x ./helm
-
-      - name: Install kubectl locally
-        run: |
-          curl -LO "https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"
-          chmod +x kubectl
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.14.0  # or latest version
+     
           
 
       - name: Run helm template
         run: |
-          ./helm template app-management \
+          helm template app-management \
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml 
 
       - name: Deploy ArgoCD Application
         run: |
-          ./helm template app-management \
+          helm template app-management \
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml | ./kubectl apply -n argocd -f - 
 
