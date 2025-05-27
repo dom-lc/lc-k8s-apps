@@ -22,9 +22,13 @@ jobs:
           token: ${{ secrets.RELEASE_PLZ_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-      
       - name: Print release outputs for debugging
         continue-on-error: true
         run: |
           echo "Release outputs:"
-          echo "${{ toJson(steps.release.outputs) }}"
+          echo "${{ steps.release.outputs }}"
+      - name: Print release outputs
+        run: |
+          echo "Release created: ${{ steps.release.outputs.release_created }}"
+          echo "Release version: ${{ steps.release.outputs.version }}"
+          echo "PR number: ${{ steps.release.outputs.pull_request_number }}"
