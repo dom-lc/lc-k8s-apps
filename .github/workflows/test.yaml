@@ -1,11 +1,29 @@
+name: Release Please
 
+on:
+  push:
+    branches:
+      - main
+      - surveillance-green
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 
-- name: Commit and push changes
-        if: github.event.pull_request.merged == true
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+      
+      - name: Print release outputs for debugging
+        continue-on-error: true
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add -u
-          git commit -m "Remove application.yaml files after merge"
-          git push
+          echo "Release outputs:"
+          echo "${{ toJson(steps.release.outputs) }}"
