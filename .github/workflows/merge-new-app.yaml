@@ -12,8 +12,8 @@ jobs:
     runs-on: surveillance-hosted-k8sapps-deploy
 
     steps:
-      # - name: Checkout lc-k8s-apps (this repo)
-      #   uses: actions/checkout@v4
+      - name: Checkout lc-k8s-apps (this repo)
+        uses: actions/checkout@v4
 
       # - name: Checkout lc-k8s-infra (contains chart)
       #   uses: actions/checkout@v4
