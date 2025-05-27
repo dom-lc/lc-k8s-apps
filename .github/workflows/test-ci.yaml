@@ -42,6 +42,11 @@ jobs:
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml 
 
+      
+      - name: get node
+        run: |
+          kubectl get node
+
       - name: Deploy ArgoCD Application
         run: |
           helm template app-management \
