@@ -48,7 +48,7 @@ jobs:
 
       - name: Run helm template
         run: |
-          helm template app-management \
+          ./helm template app-management \
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml 
 
