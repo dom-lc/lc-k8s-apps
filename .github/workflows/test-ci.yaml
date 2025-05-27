@@ -34,6 +34,12 @@ jobs:
         with:
           version: v3.14.0  # or latest version
 
+      - name: Install kubectl locally
+        run: |
+          curl -LO "https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/kubectl  # or just ./kubectl and reference it with ./kubectl
+
       - name: Run helm template
         run: |
           helm template app-management \
