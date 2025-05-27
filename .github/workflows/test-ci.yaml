@@ -22,15 +22,18 @@ jobs:
       #   with:
       #     version: 'latest'  # or specify a version like 'v1.26.0'
 
-      - name: Sudo it
-        run: |
-          echo "runner:x:1001:1001::/home/runner:/bin/bash" >> /etc/passwd
+      # - name: Sudo it
+      #   run: |
+      #     echo "runner:x:1001:1001::/home/runner:/bin/bash" >> /etc/passwd
+    
 
       - name: Install kubectl manually
         run: |
           curl -LO "https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"
           chmod +x kubectl
-          sudo mv kubectl /usr/local/bin/kubectl  # or just ./kubectl and reference it with ./kubectl
+          mkdir -p $HOME/.local/bin
+          mv kubectl $HOME/.local/bin/kubectl
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install Helm
         uses: azure/setup-helm@v3
