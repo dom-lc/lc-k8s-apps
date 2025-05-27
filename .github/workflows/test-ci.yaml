@@ -27,13 +27,7 @@ jobs:
       #     echo "runner:x:1001:1001::/home/runner:/bin/bash" >> /etc/passwd
     
 
-      - name: Install kubectl manually
-        run: |
-          curl -LO "https://dl.k8s.io/release/v1.29.0/bin/linux/amd64/kubectl"
-          chmod +x kubectl
-          mkdir -p $HOME/.local/bin
-          mv kubectl $HOME/.local/bin/kubectl
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+      
 
       - name: Install Helm
         uses: azure/setup-helm@v3
@@ -46,11 +40,11 @@ jobs:
             ./lc-k8s-infra/charts/app-management \
             -f ./charts/reloader/surveillance-green.yaml 
 
-      - name: Deploy helm template
+      - name: Deploy with kubectl
         run: |
-          helm upgrade -i app-management \
+          helm template app-management \
             ./lc-k8s-infra/charts/app-management \
-            -f ./charts/reloader/surveillance-green.yaml 
+            -f ./charts/reloader/surveillance-green.yaml | ./kubectl apply -n argocd -f - 
 
 # name: Deploy new app
 
