@@ -44,6 +44,9 @@ jobs:
 
       - name: Delete all application.yaml files in /charts/**
         run: |
-          find ./charts -type f -name 'application.yaml' -exec awk '/appName:/ {print $2}' {} + | kubectl delete application -nargocd -
+          for app in $(find ./charts -type f -name 'application.yaml' -exec awk '/appName:/ {print $2}' {} +); do
+            echo "Deleting ArgoCD application: $app"
+            kubectl delete application "$app" -n argocd || echo "Failed to delete $app (may not exist)"
+          done
 
       
