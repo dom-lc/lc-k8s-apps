@@ -22,6 +22,8 @@ jobs:
           token: ${{ secrets.RELEASE_PLZ_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          # Enable auto-merge
+          auto-merge: true
       - name: Print release outputs for debugging
         continue-on-error: true
         run: |
