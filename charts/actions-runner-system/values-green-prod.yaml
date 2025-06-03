@@ -1,0 +1,28 @@
+# This file is used to override the default values for the actions-runner-system Helm chart
+
+# namespace for the actions-runner-system
+# This namespace is used to deploy the actions-runner-controller and runner deployments
+namespace: actions-runner-system
+
+# These deployments are used to run GitHub Actions runners for various repositories
+runnerDeployments:
+  - name: prod-hosted-k8s-apps
+    repository: dom-lc/lc-k8s-infrastructure
+  - name: prod-hosted-k8s-apps
+    repository: dom-lc/lc-k8s-apps
+  - name: prod-hosted-k8s-apps-deployments
+    repository: dom-lc/lc-k8s-apps-deployments
+    
+# Overide actions-controller values
+actions-runner-controller:
+  authSecret:
+    create: false
+    name: github-auth-secret
+  githubWebhookServer:
+    enabled: true
+    service:
+      type: ClusterIP
+  controllerManager:
+    metrics:
+      serviceMonitor:
+        enabled: false

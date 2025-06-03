@@ -1,0 +1,28 @@
+{{- range .Values.runnerDeployments }}
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: {{ .name }}
+  namespace: {{ $.Values.namespace }}
+spec:
+  replicas: 1
+  template:
+    spec:
+      # Enable Docker daemon sidecar (Docker-in-Docker)
+      dockerdWithinRunnerContainer: true
+      labels:
+        - {{ .name}}
+      containers:
+        - name: runner
+          volumeMounts:
+            - name: dockersock
+              mountPath: /var/run/docker.sock
+          resources: {}   
+      volumes:
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
+            type: Socket
+      repository: {{ .repository }}
+---
+{{- end }}

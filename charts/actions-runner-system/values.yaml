@@ -1,0 +1,27 @@
+namespace: actions-runner-system
+# Token for GitHub authentication
+# This token should be a GitHub PAT 
+# secret:
+#   name: github-auth-secret
+#   type: Opaque
+#   data:
+#     github_token: <path:secret/git#git_token> 
+# Values for the runner deployment
+runnerDeployments:
+  - name: surveillance-hosted-k8s-apps
+    repository: dom-lc/lc-k8s-infra
+  - name: surveillance-hosted-k8sapps-deploy
+    repository: dom-lc/lc-k8s-apps
+# Overide actions-controller values
+actions-runner-controller:
+  authSecret:
+    create: false
+    name: github-auth-secret
+  githubWebhookServer:
+    enabled: true
+    service:
+      type: ClusterIP
+  controllerManager:
+    metrics:
+      serviceMonitor:
+        enabled: false
