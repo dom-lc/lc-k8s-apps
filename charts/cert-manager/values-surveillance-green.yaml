@@ -1,0 +1,13 @@
+# This file contains the values for the Cert-Manager Helm chart
+# It is used to deploy Cert-Manager in thesurveillance-green environment
+
+# Enable a custom issuer
+# This section contains the configuration for the issuer
+issuer:
+  enabled: false
+  selfSigned: {}
+# Overide cert-manager's values
+# Please refer to the cert-manager Chart values for more details
+cert-manager:
+  crds:
+    enabled: true
