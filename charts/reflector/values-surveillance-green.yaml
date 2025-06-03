@@ -1,0 +1,18 @@
+# This file contains the values for the Reflector Helm chart
+# It is used to deploy the Reflector in the surveillance-green environment
+
+# List of config maps to be created
+configMaps:
+  configmap-default:
+    data:
+      cluster: surveillance-green
+  configmap-custom:
+    allowedNamespaces: "dev,prod"
+    data:
+      key2: value2
+# List of secrets to be created
+secrets:
+  secret-default:
+    data:
+      username: YWRtaW4=    # base64 for "admin"
+      password: cGFzc3dvcmQ=  # base64 for "password"
