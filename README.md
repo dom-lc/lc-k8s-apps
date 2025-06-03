@@ -26,8 +26,7 @@ You have to add these lines to the ```packages:``` in the [release-please-config
         }
 ```
 
-Also tag the commit so that your version will not be bumped on the firstcommit with ```git tag chart-name-v0.1.0``` then ```git push origin chart-name-v0.1.0```. </br>
-then push the code with the as release like : ```git commit -m "feat(chart-name): initial chart" -m "as-release 0.1.0"```. </br>
+Push the code with the as release like : ```git commit -m "feat(chart-name): initial chart" -m "release-as: 0.1.0"```. </br>
 You then need to approve the PR created by release-please sio that your versioning is applied.
 
 For the PR, use the naming convention as in the documentation.</br>
