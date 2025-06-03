@@ -1,0 +1,13 @@
+# This file contains the values for the External-Secrets Helm chart
+# It is used to deploy External-Secrets in the surveillance-green environment
+
+# namespace for the external-secrets deployment
+# This namespace is used to deploy the external-secrets and its associated resources
+namespace: external-secrets
+
+# The vault token is used to authenticate with the Vault server
+secret:
+  name: vault-token
+  type: Opaque
+  stringData:
+    token: root

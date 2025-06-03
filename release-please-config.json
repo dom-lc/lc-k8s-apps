@@ -16,6 +16,10 @@
         "charts/cert-manager": {
             "package-name": "cert-manager",
             "changelog-path": "CHANGELOG.md"
+        },
+        "charts/external-secrets": {
+            "package-name": "external-secrets",
+            "changelog-path": "CHANGELOG.md"
         }
     },
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
