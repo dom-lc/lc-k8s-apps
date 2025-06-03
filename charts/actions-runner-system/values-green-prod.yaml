@@ -6,7 +6,7 @@ namespace: actions-runner-system
 
 # These deployments are used to run GitHub Actions runners for various repositories
 runnerDeployments:
-  - name: prod-hosted-k8s-apps
+  - name: prod-hosted-k8s-infra
     repository: dom-lc/lc-k8s-infrastructure
   - name: prod-hosted-k8s-apps
     repository: dom-lc/lc-k8s-apps
