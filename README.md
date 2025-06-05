@@ -16,6 +16,11 @@ All of our cluster apps resides each in their own directory under ```charts```. 
 To create a new applications, you can copy the folder ```./templates/new-app``` to ```./charts``` and rename the folder your desired application name.</br>
 Then , edit the ```<your-apps-name>/Chart.yaml``` to set your desired values and dependencies.
 
+### New apps validations and testing
+
+Before doing a PR for your new application, you have to ensure your Chart can successfuly build and be deployed.</br>
+To do so, we can validate ou chart and test our deployment using the ```Test New App``` workflow of the [lc-k8s-apps-deployments](https://github.com/dom-lc/k8s-apps-deployments.git) repository.
+
 ### New apps PR
 ### Versioning
 Versioning is done by automatically with release please.</br>
