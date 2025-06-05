@@ -1,0 +1,9 @@
+apiVersion: v2
+name: # chart-name
+version: 0.1.0
+appVersion: 1.0.0
+description: # chart description
+dependencies:
+  - name: # dependency-chart-name, often the same as chart-name
+    version: # version of the dependency chart you want to use
+    repository: # Chart URL of the dependency chart || file://local-path/to/dependency/chart

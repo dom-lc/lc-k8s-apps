@@ -13,8 +13,10 @@ All of our cluster apps resides each in their own directory under ```charts```. 
 
 ## Create a New application
 
+To create a new applications, you can copy the folder ```./templates/new-app``` to ```./charts``` and rename the folder your desired application name.</br>
+Then , edit the ```<your-apps-name>/Chart.yaml``` to set your desired values and dependencies.
 
-
+### New apps PR
 ### Versioning
 Versioning is done by automatically with release please.</br>
 You have to add these lines to the ```packages:``` in the [release-please-config.json](./release-please-config.json) :
