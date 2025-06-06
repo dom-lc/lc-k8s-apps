@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/dom-lc/lc-k8s-apps/compare/py-show-vars-v0.2.0...py-show-vars-v0.3.0) (2025-06-06)
+
+
+### Features
+
+* **py-show-vars:** modified external secret template ([371b9d7](https://github.com/dom-lc/lc-k8s-apps/commit/371b9d7df0b92e95aabeb100a5eb9187e9ee58a6))
+
 ## [0.2.0](https://github.com/dom-lc/lc-k8s-apps/compare/py-show-vars-v0.1.0...py-show-vars-v0.2.0) (2025-06-06)
 
 
