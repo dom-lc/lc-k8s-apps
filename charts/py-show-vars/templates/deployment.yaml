@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: py-show-vars
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.configmap.name }}
+            - secretRef:
+                name: {{ .Values.secrets.secret.name }}
+            - secretRef:
+                name: {{ .Values.secrets.externalSecret.name }}
+      #     volumeMounts:
+      #       - name: config-volume
+      #         mountPath: {{ .Values.container.mountPath }}/config
+      #         readOnly: true
+      #       - name: secret-volume
+      #         mountPath: {{ .Values.container.mountPath }}/secret
+      #         readOnly: true
+      #       - name: external-secret-volume
+      #         mountPath: {{ .Values.container.mountPath }}/external-secret
+      #         readOnly: true
+      # volumes:
+      #   - name: config-volume
+      #     configMap:
+      #       name: {{ .Values.configmap.name }}
+      #   - name: secret-volume
+      #     secret:
+      #       secretName: {{ .Values.secrets.secret.name }}
+      #   - name: external-secret-volume
+      #     secret:
+      #       secretName: {{ .Values.secrets.externalSecret.name }}
