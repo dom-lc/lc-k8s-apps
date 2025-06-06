@@ -1,0 +1,20 @@
+image:
+  repository: hereishd/py-show-vars
+  tag: dev
+  pullPolicy: IfNotPresent
+
+secrets:
+  secret:
+    name: secret
+    data:
+      SECRET_VALUE: "This is a secret"
+  externalSecret:
+    name: external-secret
+
+configmap:
+  name: app-config
+  data:
+    CONFIG_VALUE: "This is a config map value"
+
+container:
+  mountPath: /etc/app

@@ -24,6 +24,10 @@
         "charts/reflector": {
             "package-name": "reflector",
             "changelog-path": "CHANGELOG.md"
+        },
+        "charts/py-show-vars": {
+            "package-name": "py-show-vars",
+            "changelog-path": "CHANGELOG.md"
         }
     },
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
