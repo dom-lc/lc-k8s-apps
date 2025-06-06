@@ -1,0 +1,9 @@
+apiVersion: v2
+name: reloader
+version: 0.1.0
+appVersion: 1.0.0
+description: This chart deoploys a reloader service that watches for changes in ConfigMaps and Secrets and reloads the pods accordingly.
+dependencies:
+  - name: reloader
+    version: 2.1.2
+    repository: https://stakater.github.io/stakater-charts

@@ -1,0 +1,6 @@
+# This file contains the default values for your Helm chart
+
+# To override the default values for your dependency charts, you can use the following format:
+# dependency-name:
+#   overrideKey1: value1
+#   overrideKey2: value2
