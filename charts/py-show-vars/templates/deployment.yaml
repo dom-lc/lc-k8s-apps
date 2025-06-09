@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Release.Name }}
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   selector:
@@ -26,23 +28,3 @@ spec:
                 name: {{ .Values.secrets.secret.name }}
             - secretRef:
                 name: {{ .Values.secrets.externalSecret.name }}
-      #     volumeMounts:
-      #       - name: config-volume
-      #         mountPath: {{ .Values.container.mountPath }}/config
-      #         readOnly: true
-      #       - name: secret-volume
-      #         mountPath: {{ .Values.container.mountPath }}/secret
-      #         readOnly: true
-      #       - name: external-secret-volume
-      #         mountPath: {{ .Values.container.mountPath }}/external-secret
-      #         readOnly: true
-      # volumes:
-      #   - name: config-volume
-      #     configMap:
-      #       name: {{ .Values.configmap.name }}
-      #   - name: secret-volume
-      #     secret:
-      #       secretName: {{ .Values.secrets.secret.name }}
-      #   - name: external-secret-volume
-      #     secret:
-      #       secretName: {{ .Values.secrets.externalSecret.name }}
