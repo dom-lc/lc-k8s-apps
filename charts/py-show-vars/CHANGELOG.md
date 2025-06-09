@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/dom-lc/lc-k8s-apps/compare/py-show-vars-v0.3.0...py-show-vars-v0.4.0) (2025-06-09)
+
+
+### Features
+
+* **py-show-vars:** added reloader annotation ([469646d](https://github.com/dom-lc/lc-k8s-apps/commit/469646df555fe5d6d899188c596d4b0e20bf2c47))
+
 ## [0.3.0](https://github.com/dom-lc/lc-k8s-apps/compare/py-show-vars-v0.2.0...py-show-vars-v0.3.0) (2025-06-06)
 
 
